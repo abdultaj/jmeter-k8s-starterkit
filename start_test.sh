@@ -85,7 +85,7 @@ if [ "$source" == "git" ]; then
   fi
 
   GITHUB_API_HEADER_ACCEPT="Accept: application/vnd.github.v3+json"
-  curl=$(curl -s  -o  /tmp/${jmx} https://${GITHUB_TOKEN}@raw.githubusercontent.com/${repo}/${revision}/${path})
+  curl=$(curl -s  -o  ${JMETER_HOME}/bin/${jmx} https://${GITHUB_TOKEN}@raw.githubusercontent.com/${repo}/${revision}/${path})
   logit "INFO" "Got new jmeter file in pth - ${JMETER_HOME/bin/${jmx}}"
 fi
 
