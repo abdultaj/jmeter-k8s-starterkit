@@ -1,0 +1,6 @@
+report/
+load_test.sh
+*.log
+clean.sh
+.Ds_Store
+.idea
