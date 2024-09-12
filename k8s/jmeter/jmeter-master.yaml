@@ -4,6 +4,7 @@ metadata:
   name: jmeter-master
   labels:
     jmeter_mode: master
+    type: jmeter
 spec:
   schedule: "*/2 * * * *"
   successfulJobsHistoryLimit: 1
@@ -106,6 +107,36 @@ spec:
                 secretKeyRef:
                   key: email_password
                   name: jmeter-creds
+            - name: HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: host
+                  name: jmeter-configmap
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: port
+                  name: jmeter-configmap
+            - name: PROTOCOL
+              valueFrom:
+                configMapKeyRef:
+                  key: protocol
+                  name: jmeter-configmap
+            - name: THREADS
+              valueFrom:
+                configMapKeyRef:
+                  key: threads
+                  name: jmeter-configmap
+            - name: DURATION
+              valueFrom:
+                configMapKeyRef:
+                  key: duration
+                  name: jmeter-configmap
+            - name: RAMPUP
+              valueFrom:
+                configMapKeyRef:
+                  key: rampup
+                  name: jmeter-configmap
 #            command: ["sh", "/opt/start_test.sh"]
             command: [ "/bin/bash" ]
             args: ["-c", " /bin/bash /opt/start_test.sh -j my-scenario.jmx -s git -o abdultaj/jmeter-k8s-starterkit -v main -p scenario/my-scenario/my-scenario.jmx -r"]

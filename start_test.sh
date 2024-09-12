@@ -95,10 +95,9 @@ cd ${JMETER_HOME}/bin
 sh PluginsManagerCMD.sh install-for-jmx ${jmx}
 
 ## Starting Jmeter load test
-source "scenario/${jmx_dir}/.env"
 
-param_host="-Ghost=${host} -Gport=${port} -Gprotocol=${protocol} -Gpassword=${EMAIL_PASSWORD}"
-param_user="-Gthreads=${threads} -Gduration=${duration} -Grampup=${rampup}"
+param_host="-Jhost=${HOST} -Jport=${PORT} -Jprotocol=${PROTOCOL} -Jpassword=${EMAIL_PASSWORD}"
+param_user="-Jthreads=${THREADS} -Jduration=${DURATION} -Jrampup=${RAMPUP}"
 
 
 if [ -n "${enable_report}" ]; then
