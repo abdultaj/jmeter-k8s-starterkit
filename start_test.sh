@@ -85,8 +85,8 @@ if [ "$source" == "git" ]; then
   fi
 
   GITHUB_API_HEADER_ACCEPT="Accept: application/vnd.github.v3+json"
-  curl=$(curl -s  -o  /tmp/${jmx} https://$GITHUB_TOKEN@raw.githubusercontent.com/${repo}/${revision}/${path})
-  logit "INFO" "Got new jmeter file - ${curl}"
+  curl=$(curl -s  -o  /tmp/${jmx} https://${GITHUB_TOKEN}@raw.githubusercontent.com/${repo}/${revision}/${path})
+  logit "INFO" "Got new jmeter file in pth - ${JMETER_HOME/bin/${jmx}}"
 fi
 
 
@@ -97,7 +97,7 @@ sh PluginsManagerCMD.sh install-for-jmx ${jmx}
 ## Starting Jmeter load test
 source "scenario/${jmx_dir}/.env"
 
-param_host="-Ghost=${host} -Gport=${port} -Gprotocol=${protocol}"
+param_host="-Ghost=${host} -Gport=${port} -Gprotocol=${protocol} -Gpassword=${EMAIL_PASSWORD}"
 param_user="-Gthreads=${threads} -Gduration=${duration} -Grampup=${rampup}"
 
 
