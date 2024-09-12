@@ -98,7 +98,7 @@ spec:
                   fieldPath: metadata.namespace
 #            command: ["sh", "/opt/start_test.sh"]
             command: [ "/bin/bash" ]
-            args: ["-c", " /bin/bash /opt/start_test.sh -j my-scenario.jmx -r"]
+            args: ["-c", " /bin/bash /opt/start_test.sh -j my-scenario.jmx -s git -o abdultaj/jmeter-k8s-starterkit -v main -p scenario/my-scenario/my-scenario.jmx -r"]
             ports:
             - containerPort: 60000
             - containerPort: 4445
