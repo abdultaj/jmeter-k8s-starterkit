@@ -96,6 +96,16 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
+            - name: GITHUB_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: github_token
+                  name: jmeter-creds
+            - name: EMAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: email_password
+                  name: jmeter-creds
 #            command: ["sh", "/opt/start_test.sh"]
             command: [ "/bin/bash" ]
             args: ["-c", " /bin/bash /opt/start_test.sh -j my-scenario.jmx -s git -o abdultaj/jmeter-k8s-starterkit -v main -p scenario/my-scenario/my-scenario.jmx -r"]
