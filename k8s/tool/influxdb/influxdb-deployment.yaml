@@ -20,6 +20,8 @@ spec:
             - secretRef:
                 name: influxdb-creds
           image: docker.io/influxdb:1.8
+          ports:
+          - containerPort: 8086
           name: influxdb
           resources:
             requests:
